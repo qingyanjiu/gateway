@@ -33,7 +33,7 @@ public class PreFilter extends ZuulFilter {
   public Object run() {
     RequestContext ctx = RequestContext.getCurrentContext();
     HttpServletRequest request = ctx.getRequest();
-    ServiceInstance serviceInstance = loadBalancerClient.choose("ee-service");
+    ServiceInstance serviceInstance = loadBalancerClient.choose("hello-service");
     System.out.println("****************************************************************");
     System.out.println("Request Method : " + request.getMethod() + " Request URL : " + serviceInstance.getScheme()+serviceInstance.getHost()+":"+serviceInstance.getPort());
     System.out.println("****************************************************************");
